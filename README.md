@@ -5,14 +5,15 @@ tbfe is a file explorer I made (with the help of chatgpt) to test my coding skil
 ## Features
 
 - `help`: shows all the command for tbfe
-- `ls`: lists all the files and directories in the current directory
-- `cr`: creates a file or directory
-- `goto`: changes the directory (use .. to go back a directory and - to the previous directory you were in)
-- `rn`: renames a file or directory
-- `mv`: moves a file or directory to another directory
+- `ls`: lists all the files and directories
+- `cr`: creates  files or directory
+- `goto`: changes the directory
+- `rn`: renames files or directories
+- `mv`: moves files or directories
 - `exit`: exits tbfe
-- `clear`: clears all the output
-- `rm`: removes a file or directory 
+- `clear`: clears the screen
+- `rm`: removes files or directories
+- `rd`(New): read files
 
 ## Installation
 

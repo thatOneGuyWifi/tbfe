@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <ios>
 #include <iostream>
 #include <string>
 #include <filesystem>
@@ -26,6 +27,7 @@ int main() {
 		cout << "exit: exits tbfe" << '\n' << '\n' << '\n';
 		cout << "clear: clears all the output" << '\n' << '\n' << '\n';
 		cout << "rm: removes a file or directory" << '\n' << '\n' << '\n';
+		cout << "rd: outputs all the contents of a file" << '\n' << '\n' << '\n';
 		main();
 	}
 	else if (tinput == "ls") {
@@ -207,6 +209,29 @@ int main() {
     		} catch (const std::filesystem::filesystem_error& e) {
         		std::cerr << "Error moving: " << e.what() << '\n';
     		}
+		main();
+	}
+	else if (tinput == "rd") {
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clears the newline left in the input buffer
+
+		string rdinput, rdcontent; // rdinput takes in the file user inputed. rdcontent will take in the contents of rdFile
+		std::fstream rdFile;
+
+		cout << "Enter the name of the file you want to read: ";
+		std::getline(cin, rdinput);
+
+		rdFile.open(rdinput, std::ios::in); // this takes in the input of the user aka takes in the contents of rdinput
+
+		if (rdFile.is_open()) {
+			while (std::getline(rdFile, rdcontent)) {
+				cout << rdcontent << '\n';
+			}
+			rdFile.close();
+		}
+		else {
+			cout << "Error: \"" << rdinput << "\" does not exist in the current directory\n";
+			main();
+		}
 		main();
 	}
 	else if (tinput == "exit") {
