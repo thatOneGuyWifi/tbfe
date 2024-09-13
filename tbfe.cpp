@@ -1,9 +1,12 @@
+#include <cstdio>
 #include <cstdlib>
 #include <ios>
 #include <iostream>
 #include <string>
 #include <filesystem>
 #include <fstream>
+
+#define getline(x, y) std::getline(x, y)
 
 int main() {
 	using std::cout;
@@ -49,7 +52,7 @@ int main() {
 		while (true) {
             		if (crinput == 'f') {
                 		cout << "Enter the name of the file: ";
-				std::getline(cin, nameOf_FOrD);
+				getline(cin, nameOf_FOrD);
 
 				std::filesystem::path file_path = current_path / nameOf_FOrD;
                 		std::ofstream file(file_path);  // Create the file
@@ -58,7 +61,7 @@ int main() {
             		}
             		else if (crinput == 'd') {
                 		cout << "Enter the name of the directory: ";
-                		std::getline(cin, nameOf_FOrD);
+                		getline(cin, nameOf_FOrD);
 
                 		std::filesystem::path dir_path = current_path / nameOf_FOrD;
                 		std::filesystem::create_directory(dir_path);  // Create the directory
@@ -89,7 +92,7 @@ int main() {
 		string gtinput; // this will take in the name and change the directory accordingly
 
         	cout << "Enter the directory name: ";
-        	std::getline(std::cin, gtinput);
+        	getline(std::cin, gtinput);
 
         	// Check if the input is empty and handle it
         	if (gtinput.empty()) {
@@ -130,13 +133,13 @@ int main() {
 		string fOrD_input; // this will take the file or directory of what the user typed
 
 		cout << "Enter a file or directory: ";
-		std::getline(cin, fOrD_input);
+		getline(cin, fOrD_input);
 
 		std::filesystem::path old_path = current_path / fOrD_input;
 
 		if (std::filesystem::exists(old_path)) {
 			cout << "Enter the new name: ";
-			std::getline(cin, rninput);
+			getline(cin, rninput);
 
 			std::filesystem::path new_path = current_path / rninput;
 
@@ -158,7 +161,7 @@ int main() {
 		string rminput; // gets the file or directory given by the user
 
 		cout << "Enter the name of the file or directory you want to remove: ";
-		std::getline(cin, rminput);
+		getline(cin, rminput);
 
 		std::filesystem::path path_to_remove = current_path / rminput;
 
@@ -188,7 +191,7 @@ int main() {
 		string nameOf_FOrD, mvinput; // mvinput will take in the path the user want there file or directory to be in 
 
 		cout << "Enter the file or directory you want to move: ";
-		std::getline(cin, nameOf_FOrD);
+		getline(cin, nameOf_FOrD);
 
 		std::filesystem::path source_path = current_path / nameOf_FOrD;
 
@@ -199,7 +202,7 @@ int main() {
     		}
 
 		cout << "Enter the path you want the file or directory you want to move it in: ";
-    		std::getline(cin, mvinput);
+    		getline(cin, mvinput);
 
     		std::filesystem::path destination_path = std::filesystem::path(mvinput) / nameOf_FOrD;
 
@@ -218,12 +221,12 @@ int main() {
 		std::fstream rdFile;
 
 		cout << "Enter the name of the file you want to read: ";
-		std::getline(cin, rdinput);
+		getline(cin, rdinput);
 
 		rdFile.open(rdinput, std::ios::in); // this takes in the input of the user aka takes in the contents of rdinput
 
 		if (rdFile.is_open()) {
-			while (std::getline(rdFile, rdcontent)) {
+			while (getline(rdFile, rdcontent)) {
 				cout << rdcontent << '\n';
 			}
 			rdFile.close();
