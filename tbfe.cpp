@@ -34,9 +34,21 @@ int main() {
 		main();
 	}
 	else if (tinput == "ls") {
-		for (const auto& entry : std::filesystem::directory_iterator(current_path)) {
-                	cout << (entry.is_directory() ? "[DIR]  " : "[FILE] ") << entry.path().filename().string() << '\n';
-            	}
+		// List all the Directories
+		cout << "Directories:\n";
+    		for (const auto& entry : std::filesystem::directory_iterator(current_path)) {
+        		if (entry.is_directory()) {
+            			cout << entry.path().filename().string() << '\n';
+        		}
+    		}
+	
+		// List all the Files
+    		cout << "\nFiles:\n";
+    		for (const auto& entry : std::filesystem::directory_iterator(current_path)) {
+        		if (!entry.is_directory()) {
+            			cout << entry.path().filename().string() << '\n';
+        		}
+    		}
 
 		main();
 	}
