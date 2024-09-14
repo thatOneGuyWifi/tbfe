@@ -36,10 +36,6 @@ change /home/user/tbfe/ to the path the compiled code is in
 
 To run tbfe, type `./tbfe` (or the name of the compiled code). If you made an alias type the name of the alias (e.g `tbfe`)
 
-## License
-
-This project is licensed under the GNU General Public License v3.0 (GPL v3.0)
-
 # Contributing
 
 You can contribute to the project if you want
