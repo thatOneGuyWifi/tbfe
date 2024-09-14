@@ -18,7 +18,7 @@ int main() {
     	static std::filesystem::path previous_path = current_path; // track the previous directory	
 
 	cout << "tbfe>" << current_path << "> ";
-	cin >> tinput;
+	getline(cin, tinput);
 
 	if(tinput == "help") {
 		cout << "\nhelp: shows all the command for tbfe" << '\n' << '\n' << '\n';
